@@ -1,3 +1,5 @@
+require_relative 'view'
+
 class Input
   attr_reader :temperature, :from_scale, :to_scale
 
@@ -14,7 +16,7 @@ class Input
   end
 
   def quit_program
-    gets.chomp
+    @quit = gets.chomp
   end
 
   def check_temperature(value)
@@ -29,5 +31,11 @@ class Input
 
   def check_out_degree_type(scale)
     %w[F K C].include?(scale)
+  end
+
+  def check_input(value, scale, new_scale)
+    abort 'Temperature must be numeric value!' if check_temperature(value) == false
+    abort 'Incorrect scale!' if check_in_degree_type(scale) == false
+    abort 'Incorrect scale!' if check_out_degree_type(new_scale) == false
   end
 end
