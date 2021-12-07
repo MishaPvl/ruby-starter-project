@@ -32,9 +32,9 @@ RSpec.describe Input do
       end
     end
     describe '#check_input' do
-      let(:test_value) {test.check_input('12', 'D', 'F')}
+      let(:test_value) { test.check_input('12', 'D', 'F') }
       context 'when incorrect scale' do
-        it { expect { test_value }.to raise_error(SystemExit)}
+        it { expect { test_value }.to raise_error(SystemExit) }
       end
     end
   end
